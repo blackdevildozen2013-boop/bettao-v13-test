@@ -58,7 +58,23 @@
     else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
   }
   close.addEventListener('click',dismiss);
-  link.addEventListener('click',()=>{if(cfg.openInNewTab)dismiss()});
+  // Navigation stays inside the user's tap/click gesture (important for iOS WebView).
+  // This does not override navigation restrictions imposed by the native iOS app.
+  link.addEventListener('pointerdown',()=>link.classList.add('is-pressing'));
+  for(const name of ['pointerup','pointercancel','pointerleave']){
+    link.addEventListener(name,()=>link.classList.remove('is-pressing'));
+  }
+  link.addEventListener('click',(event)=>{
+    if(!destination){event.preventDefault();return}
+    event.preventDefault();
+    if(cfg.openInNewTab){
+      const opened=window.open(destination,'_blank','noopener,noreferrer');
+      if(!opened)window.location.assign(destination);
+      else dismiss();
+    }else{
+      window.location.assign(destination);
+    }
+  });
   const show=()=>{
     if(wasShown||document.hidden)return;
     wasShown=true;previousFocus=document.activeElement;visible=true;
