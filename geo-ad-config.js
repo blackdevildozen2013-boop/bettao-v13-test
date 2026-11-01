@@ -8,7 +8,7 @@ window.BETTAO_GEO_AD = Object.freeze({
   enabled: true,
   testMode: true,                 // true = показать сразу в любой стране
   targetCountry: 'BR',           // используется только при testMode: false
-  destinationUrl: '',            // <-- СЮДА ВСТАВИТЬ HTTPS-ССЫЛКУ РЕКЛАМОДАТЕЛЯ
+  destinationUrl: 'https://r1wclcs.com/v3/fortune-tiger?p=0wz8',            // <-- СЮДА ВСТАВИТЬ HTTPS-ССЫЛКУ РЕКЛАМОДАТЕЛЯ
   bannerImage: 'betao-premium-ad-poster.webp',
   mobileBannerImage: 'betao-premium-ad-poster.webp',
   videoFile: 'betao-premium-ad.mp4',
