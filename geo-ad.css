@@ -1,0 +1,20 @@
+/* BETÃO v13 — full-viewport video overlay above ALL site elements. */
+.bta-ad[hidden]{display:none!important}
+.bta-ad{position:fixed!important;inset:0!important;width:100vw;height:100vh;height:100dvh;z-index:2147483647!important;background:#030b08;color:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;isolation:isolate;font-family:Inter,system-ui,-apple-system,sans-serif;overscroll-behavior:contain}
+.bta-ad:before{content:"";position:absolute;inset:-8%;background:url('betao-premium-ad-poster.webp') center/cover no-repeat;filter:blur(32px) brightness(.29) saturate(1.45);transform:scale(1.12);pointer-events:none}
+.bta-ad:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 48%,transparent 30%,rgba(0,5,2,.38) 100%);pointer-events:none}
+.bta-ad__stage{position:relative;z-index:1;width:100%;height:100%;overflow:hidden;background:transparent}
+.bta-ad__fallback,.bta-ad__video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.bta-ad__fallback{filter:drop-shadow(0 0 35px rgba(237,166,26,.2))}
+.bta-ad__video{z-index:1}
+.bta-ad__click{position:absolute;inset:0;z-index:2;cursor:pointer;text-indent:-9999px;overflow:hidden}
+.bta-ad__click[aria-disabled="true"]{pointer-events:none;cursor:default}
+.bta-ad__click:focus-visible{outline:4px solid #f9dc7d;outline-offset:-5px}
+.bta-ad__top{position:absolute;top:0;left:0;right:0;z-index:6;display:flex;justify-content:space-between;align-items:flex-start;padding:calc(12px + env(safe-area-inset-top,0px)) 16px 0;pointer-events:none}
+.bta-ad__label{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:99px;border:1px solid rgba(255,233,165,.8);background:rgba(0,10,6,.87);box-shadow:0 3px 16px #000b;color:#fff;font-size:12px;font-weight:850;letter-spacing:.025em;pointer-events:auto}
+.bta-ad__close{display:grid;place-items:center;width:48px;height:48px;flex:none;border-radius:50%;border:2px solid rgba(255,255,255,.9);background:rgba(0,8,6,.85);color:#fff;font-size:30px;line-height:1;cursor:pointer;pointer-events:auto;box-shadow:0 4px 20px #0009;touch-action:manipulation}
+.bta-ad__close:focus-visible{outline:3px solid #ffdd73;outline-offset:3px}
+.bta-ad__foot{position:absolute;bottom:calc(12px + env(safe-area-inset-bottom,0px));left:0;right:0;z-index:5;display:flex;justify-content:center;pointer-events:none}
+.bta-ad__foot span{background:rgba(0,8,5,.8);border:1px solid rgba(255,221,131,.35);padding:6px 11px;border-radius:99px;font-size:10px;letter-spacing:.05em;color:#f8e4ae;text-align:center;max-width:90vw}
+body.bta-ad--locked{overflow:hidden!important;touch-action:none}
+@media(prefers-reduced-motion:reduce){.bta-ad__video{display:none}}
